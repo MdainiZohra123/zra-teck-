@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="loginApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body>
+  <!-- Your login form and AngularJS directives will go here -->
+  <div ng-controller="LoginController">
+    <form ng-submit="login()">
+      <label for="username">Username:</label>
+      <input type="text" id="username" ng-model="user.username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" ng-model="user.password" required>
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <!-- Your AngularJS script will go here -->
+  <script>
+    var app = angular.module('loginApp', []);
+
+    app.controller('LoginController', function($scope) {
+      $scope.user = {};
+
+      $scope.login = function() {
+        // Perform login logic here
+        console.log('Logging in with username: ' + $scope.user.username);
+        // You can add your authentication logic and redirection here
+      };
+    });
+  </script>
+</body>
+</html>
